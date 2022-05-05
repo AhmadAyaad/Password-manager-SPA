@@ -1,0 +1,30 @@
+<h3>Edit user login</h3>
+<div class="container ">
+    <form *ngIf="userLoginform" [formGroup]="userLoginform" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-4">
+                <div>Username</div>
+                <input formControlName="username" type="text" placeholder="Enter username" pInputText>
+                <small class="error"
+                    *ngIf="formControls?.username?.touched && formControls?.username?.errors?.required ">Username
+                    is required</small>
+
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <div>password</div>
+                <input formControlName="password" placeholder="Enter password" type="password" pInputText>
+                <small class="error"
+                    *ngIf="formControls?.password?.touched && formControls?.password?.errors?.required ">Password
+                    is required</small>
+                <small class="error"
+                    *ngIf="formControls?.password?.touched && formControls?.password?.errors?.pattern ">Password
+                    must contain at least 1 number and 1 speical character</small>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</div>
